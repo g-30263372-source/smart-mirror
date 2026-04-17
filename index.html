@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { text-align:center; font-family:"Times New Roman"; }
+
+.counter { font-size:50px; margin:20px; }
+
+button {
+  padding:12px 20px;
+  font-size:18px;
+  border-radius:20px;
+  margin:10px;
+  border:none;
+}
+
+.add { background:#BC8F8F; color:white; }
+.reset { background:grey; color:white; }
+</style>
+</head>
+
+<body>
+
+<h2>📿 Tasbih Counter</h2>
+
+<div class="counter" id="count">0</div>
+
+<button class="add" onclick="tambah()">+ Tambah</button>
+<button class="reset" onclick="reset()">Reset</button>
+
+<script>
+let kiraan = 0;
+
+function tambah() {
+  kiraan++;
+  document.getElementById("count").innerText = kiraan;
+}
+
+function reset() {
+  kiraan = 0;
+  document.getElementById("count").innerText = kiraan;
+}
+</script>
+
+</body>
+</html>
