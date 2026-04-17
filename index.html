@@ -7,17 +7,23 @@
 
 <body style="text-align:center; font-family:'Times New Roman';">
 
-<audio id="audio" autoplay muted loop>
+<audio id="audio">
   <source src="zikir.mp3" type="audio/mpeg">
 </audio>
+
+<div style="margin-top:100px;">
+  <h2>Selamat Datang</h2>
+  <p>Klik mana-mana untuk aktifkan audio</p>
+</div>
 
 <script>
 document.addEventListener("click", function() {
   const audio = document.getElementById("audio");
-  audio.muted = false;
   audio.play();
 }, { once: true });
 </script>
+
+</body>
 
 <h2>Selamat Datang</h2>
 <p>Klik di mana-mana untuk aktifkan audio</p>
