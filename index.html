@@ -2,31 +2,26 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Mirror</title>
+  <title>Smart Mirror Imtiyaz</title>
 </head>
 
 <body style="text-align:center; font-family:'Times New Roman';">
 
+<h2>Selamat Datang</h2>
+<p>Klik mana-mana untuk mula audio</p>
+
+<!-- AUDIO FILE -->
 <audio id="audio">
   <source src="zikir.mp3" type="audio/mpeg">
 </audio>
 
-<div style="margin-top:100px;">
-  <h2>Selamat Datang</h2>
-  <p>Klik mana-mana untuk aktifkan audio</p>
-</div>
-
+<!-- SCRIPT UNTUK START AUDIO -->
 <script>
-document.addEventListener("click", function() {
-  const audio = document.getElementById("audio");
+document.addEventListener("click", function () {
+  let audio = document.getElementById("audio");
   audio.play();
 }, { once: true });
 </script>
-
-</body>
-
-<h2>Selamat Datang</h2>
-<p>Klik di mana-mana untuk aktifkan audio</p>
 
 </body>
 </html>
