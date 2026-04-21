@@ -2,42 +2,121 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tasbih Digital</title>
+<title>Tasbih Comel</title>
 
 <style>
 body {
   text-align: center;
-  font-family: 'Times New Roman';
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffe4ec, #e0f7ff);
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  margin-top: 80px;
+}
+
+h2 {
+  color: #ff6f91;
 }
 
 #count {
-  font-size: 60px;
+  font-size: 70px;
   margin: 20px;
+  color: #333;
 }
 
 button {
-  font-size: 20px;
-  padding: 10px 20px;
+  font-size: 18px;
+  padding: 12px 25px;
   margin: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tambah {
+  background: #a0e7e5;
+}
+
+.reset {
+  background: #ffb7b2;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* ✨ Sparkle animation */
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float 1s linear forwards;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.note {
+  margin-top: 20px;
+  color: #555;
 }
 </style>
 </head>
 
 <body>
 
-<h2>Tasbih Digital</h2>
+<div class="container">
+  <h2>🌸 Tasbih Digital 🌸</h2>
+  <div id="count">0</div>
 
-<div id="count">0</div>
+  <button class="tambah" onclick="tambah(event)">+ Tambah</button>
+  <button class="reset" onclick="reset()">Reset</button>
 
-<button onclick="tambah()">+ Tambah</button>
-<button onclick="reset()">Reset</button>
+  <div class="note">“Zikir menenangkan hati 💖”</div>
+</div>
+
+<!-- 🔊 Sound -->
+<audio id="clickSound">
+  <source src="https://www.soundjay.com/button/sounds/button-16.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 let kira = 0;
 
-function tambah() {
+function tambah(e) {
   kira++;
   document.getElementById("count").innerText = kira;
+
+  // 🔊 Play sound
+  let sound = document.getElementById("clickSound");
+  sound.currentTime = 0;
+  sound.play();
+
+  // ✨ Sparkle effect
+  for (let i = 0; i < 5; i++) {
+    let sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = (e.clientX + Math.random()*20 - 10) + "px";
+    sparkle.style.top = (e.clientY + Math.random()*20 - 10) + "px";
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 1000);
+  }
 }
 
 function reset() {
