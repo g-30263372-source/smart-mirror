@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasbih Digital</title>
+
+<style>
+body {
+  text-align: center;
+  font-family: 'Times New Roman';
+}
+
+#count {
+  font-size: 60px;
+  margin: 20px;
+}
+
+button {
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Tasbih Digital</h2>
+
+<div id="count">0</div>
+
+<button onclick="tambah()">+ Tambah</button>
+<button onclick="reset()">Reset</button>
+
+<script>
+let kira = 0;
+
+function tambah() {
+  kira++;
+  document.getElementById("count").innerText = kira;
+}
+
+function reset() {
+  kira = 0;
+  document.getElementById("count").innerText = kira;
+}
+</script>
+
+</body>
+</html>
