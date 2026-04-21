@@ -7,71 +7,37 @@
 <style>
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: white;
   text-align: center;
+  direction: rtl;
 }
 
-/* HEADER */
 header {
-  padding: 30px 10px;
+  padding: 25px;
 }
 
 h1 {
   color: gold;
-  font-size: 28px;
-  animation: fadeIn 2s ease-in;
 }
 
-/* CARDS */
 .card {
   background: rgba(255,255,255,0.08);
   margin: 15px auto;
   padding: 20px;
   width: 85%;
   border-radius: 20px;
-  box-shadow: 0 0 15px rgba(255,215,0,0.2);
-  animation: slideUp 1.5s ease-in;
-  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(255,215,0,0.2);
 }
 
-.card h3 {
-  color: #ffd700;
-}
-
-/* BUTTON */
 button {
-  margin-top: 20px;
   padding: 12px 20px;
   border: none;
-  border-radius: 25px;
+  border-radius: 20px;
   background: gold;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes slideUp {
-  from {transform: translateY(50px); opacity: 0;}
-  to {transform: translateY(0); opacity: 1;}
-}
-
-/* SMALL FOOTER */
-footer {
-  margin-top: 30px;
-  font-size: 12px;
-  opacity: 0.7;
 }
 </style>
 </head>
@@ -79,46 +45,42 @@ footer {
 <body>
 
 <header>
-  <h1>🌙 Al-Mathurat Harian</h1>
-  <p>Amalan Zikir & Doa Rasulullah SAW</p>
+  <h1>🌙 المأثورات اليومية</h1>
+  <p>Zikir & Doa Harian</p>
 </header>
 
-<!-- CONTENT -->
+<!-- DOA ARAB -->
 <div class="card">
-  <h3>🌅 Doa Pagi</h3>
-  <p>“Allahumma bika asbahna wa bika amsayna...”</p>
+  <h3>دعاء الصباح</h3>
+  <p>اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا</p>
 </div>
 
 <div class="card">
-  <h3>🛡️ Zikir Perlindungan</h3>
-  <p>“Bismillahil-lazi la yadurru ma’asmihi shay’un...”</p>
+  <h3>دعاء الحفظ</h3>
+  <p>بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ</p>
 </div>
 
 <div class="card">
-  <h3>💖 Istighfar</h3>
-  <p>“Astaghfirullahal ‘azim allazi la ilaha illa hu...”</p>
+  <h3>الاستغفار</h3>
+  <p>أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ</p>
 </div>
 
-<!-- BUTTON -->
-<button onclick="playAudio()">▶ Play Audio Zikir</button>
+<!-- AUDIO -->
+<button onclick="playAudio()">▶ تشغيل الذكر</button>
 
-<!-- AUDIO (optional link boleh tukar sendiri nanti) -->
 <audio id="audio">
-  <source src="https://www.soundjay.com/button/sounds/button-16.mp3" type="audio/mpeg">
+  <source src="zikir.mp3" type="audio/mpeg">
 </audio>
 
-<!-- SCRIPT -->
 <script>
 function playAudio() {
   let audio = document.getElementById("audio");
-  audio.currentTime = 0;
-  audio.play();
+
+  audio.play().catch(() => {
+    alert("Klik sekali screen dulu baru audio boleh jalan 👍");
+  });
 }
 </script>
-
-<footer>
-  Smart Mirror Imtiyaz © 2026
-</footer>
 
 </body>
 </html>
